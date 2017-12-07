@@ -1,11 +1,8 @@
 package com.lpnu;
 
-import java.util.Collection;
-import java.util.Vector;
-
 public class Main {
     public static void main(String[] args) {
-        Expression first=new Expression();
+        Expression first = new Expression(System.in);
         first.scan();
         first.pick();
     }

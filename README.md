@@ -1,2 +1,2 @@
 # Swapping-numbers
-Final work Object-oriented programming. Semestr 3
+Final OOP work (3 term)

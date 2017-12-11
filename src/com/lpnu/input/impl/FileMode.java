@@ -15,19 +15,22 @@ public class FileMode implements Mode {
 
     public InputStream getExpressionAsInputStream() {
         try {
+            PrintWriter writer = new PrintWriter(resultFileName);
+            writer.print("");
+            writer.close();
             return new FileInputStream(inputFileName);
         } catch (FileNotFoundException e) {
-            System.out.println("Oops some shit happened wile was trying to read the file -_-");
+            System.out.println("Oops some shit happened while was trying to read the file -_-");
             e.printStackTrace();
         }
         return null;
     }
 
     public void populateResult(String result) {
-        try (BufferedWriter output = new BufferedWriter(new FileWriter(resultFileName, false))) {
-            output.write(result);
+        try (BufferedWriter output = new BufferedWriter(new FileWriter(resultFileName, true))) {
+            output.write(result + "\n");
         } catch (IOException e) {
-            System.out.println("Oops some shit happened wile was trying populate result to file -_-");
+            System.out.println("Oops some shit happened while was trying populate result to file -_-");
             e.printStackTrace();
         }
     }

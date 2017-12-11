@@ -40,7 +40,7 @@ public class Expression {
                     temp /= 10;
                 }
                 k = 0;
-                if (tempExpression.contains(res[k]) && tempExpression.contains(res[k + 1]) && tempExpression.size() == 2) {
+                if (tempExpression.contains(res[k]) && tempExpression.contains(res[k + 1])) {
                     mode.populateResult(expression.get(i) + "*" + expression.get(j) + "=" + (res[k + 1]) + (res[k]));
                 }
                 res[0] = '\0';

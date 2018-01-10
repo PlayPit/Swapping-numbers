@@ -6,6 +6,7 @@ import com.lpnu.input.Mode.InputType;
 import com.lpnu.input.impl.TerminalMode;
 import com.lpnu.input.impl.FileMode;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static com.lpnu.input.Mode.InputType.*;
@@ -34,7 +35,12 @@ public class Main {
 
     private static Mode detectChosenInput() throws ExitException {
         Scanner input = new Scanner(System.in);
-        int option = input.nextInt();
+        int option;
+        try {
+            option = input.nextInt();
+        } catch (InputMismatchException e){
+            throw new ExitException();
+        }
         InputType mode = null;
         if (values().length > option) {
             mode = values()[option];
